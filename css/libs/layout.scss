@@ -1,0 +1,97 @@
+*, ::before, ::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Minion';
+  color: white;
+  font-weight: 100;
+}
+html{
+  max-height: 100%;
+  max-width: 1280px;
+  margin: auto;
+}
+body{
+  background: rgb(15,46,66);
+  background: linear-gradient(90deg, rgba(15,46,66,1) 59%, rgba(22,70,108,1) 100%);
+}
+h2{
+  padding: 1em;
+  opacity: 0.8;
+}
+input ,select,option,label,button{
+  cursor: pointer;
+}
+option{
+  color:black;
+}
+::-webkit-input-placeholder {
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+  font-size: 15px;
+}
+::-moz-placeholder {
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+  font-size: 15px;
+}
+:-ms-input-placeholder {
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+  font-size: 15px;
+}
+::-ms-input-placeholder {
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+  font-size: 15px;
+}
+::placeholder {
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+  font-size: 15px;
+}
+input{
+  &:focus ::placeholder{
+    opacity: 0;
+  }
+}
+select{
+  color: white;
+}
+a{
+  text-decoration: none;
+}
+//   API 
+.reveal {
+  opacity: 0;
+  transform:translateY(-30px);
+}
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: 1.2s;
+}
+// LINK ANIMATION 
+.link-animation::after{
+  content:'';
+  display: block;
+  width: 0;
+  height: 2px;
+  background-color: $gold;
+  transition:width .3s;
+}
+.link-animation:hover::after{
+  width: 100%;
+  transition: width .3s;
+}

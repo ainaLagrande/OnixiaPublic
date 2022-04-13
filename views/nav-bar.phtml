@@ -1,0 +1,73 @@
+<!--Header_section-->
+<header id="header_outer">
+  <div class="container">
+    <div class="header_section">
+      <nav class="nav" id="nav">
+        <ul>
+        <?php if(($_SESSION['userType']) == "user") : ?><!--si utilisateur normal est connecté -->
+          <li><a href="index.php?page=home_user_page">Acceuil</a></li>
+          <li><a href="index.php?page=programs">Programmes</a></li>
+          <!-- <li><a href="index.php?page=lots">Lots</a></li> -->
+
+        <?php elseif(($_SESSION['userType']) == "admin"): ?><!--si admin  est connecté -->
+          <li><a href="index.php?page=home_user_page">Acceuil</a></li>
+          <li><a href="index.php?page=programs">Programmes</a></li>
+          <!-- <li><a href="index.php?page=lots">Lots</a></li> -->
+          <li><a href="index.php?page=add_programs">Ajouter un programme</a></li>
+          <!-- <li><a href="index.php?page=add_lots">Ajouter un lot</a></li> -->
+          <li><a href="index.php?page=regisration">Inscrire</a></li>
+          <li><a href="index.php?page=users">Membres</a></li>
+          
+          <?php endif; ?>
+            <?php if(isset($_SESSION['auth'])): ?> <!--si qqn est connecté -->
+              <li><a href="index.php?page=logout">Se déconnecter</a></li>
+            <?php endif; ?>
+        </ul>
+      </nav>
+  </div>
+</header>
+
+
+<!-- MENU MOBIL  -->
+
+<div class="hamburger-menu">
+  <nav>
+   <ul class="hamburger-menu-list" id="menu">
+    <?php if(($_SESSION['userType']) == "user") : ?><!--si utilisateur normal est connecté -->
+    <li><a href="index.php?page=home_user_page">Acceuil</a></li>
+    <li><a href="index.php?page=programs">Programmes</a></li>
+    <li><a href="index.php?page=lots">Lots</a></li>
+
+    <?php elseif(($_SESSION['userType']) == "admin"): ?><!--si admin  est connecté -->
+      <li><a href="index.php?page=home_user_page">Acceuil</a></li>
+      <li><a href="index.php?page=programs">Programmes</a></li>
+      <!-- <li><a href="index.php?page=lots">Lots</a></li> -->
+      <li><a href="index.php?page=add_programs">Ajouter un programme</a></li>
+      <!-- <li><a href="index.php?page=add_lots">Ajouter un lot</a></li> -->
+      <li><a href="index.php?page=regisration">Inscrire</a></li>
+      <li><a href="index.php?page=users">Membres</a></li>
+      
+  
+      <?php endif; ?>
+        <?php if(isset($_SESSION['auth'])): ?> <!--si qqn est connecté -->
+          <li><a href="index.php?page=logout">Se déconnecter</a></li>
+        <?php endif; ?>
+   </ul>
+  </nav>
+</div>
+
+
+<!-- BUTTON MOBIL  -->
+<div class="hamburger-container">
+  <a  href="javaScript:abrefecha()">
+    <div id="hamburger" class="hamburger-icon-wrapper">
+      <span class="hamburger-icon" ></span>
+    </div>
+  </a>
+  </div>
+
+
+
+<script>
+
+</script>

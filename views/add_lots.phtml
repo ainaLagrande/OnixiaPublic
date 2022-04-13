@@ -1,0 +1,68 @@
+<?php
+require_once './views/nav-bar.phtml';
+require_once './models/program_manager.php';
+?>
+
+<div class="page_container">
+    <div class="form-container reveal">
+    <form method="POST" enctype="multipart/form-data">
+        <span class='formErrors'><?php if(isset ($errors)){echo $errors;}?></span>
+        <span class='formSucces'><?php if(isset ($succes)){echo $succes;}?></span>
+        <h2>Ajouter un lot</h2> 
+        <div class="inputs_column_box">
+            <!-- NOM DU PROGRAMME  -->
+            <select class="inputs" name="lotProgramName">
+                <option value="">Choisir le programme</option>
+                <?php foreach ($programs as $program): ?>
+                <option value="<?= $program['programName'] ?>"><?= $program['programName'] ?></option>
+                <?php endforeach; ?>
+            </select> 
+            <!-- N DE LOTS  -->
+            <input type="text" class="inputs" name="lotNumero" placeholder="N de lot" value="<?php if(isset ($errors)){echo  htmlspecialchars($_POST['lotNumero']);}?>"/><br>
+        </div>
+
+        <div class="inputs_column_box">
+            <!-- PIECES  -->
+            <input type="text" class="inputs" name="room" placeholder="Pièces" value="<?php if(isset ($errors)){echo  htmlspecialchars($_POST['room']);}?>"/>
+            <!-- SURFACE -->
+            <input type="text" class="inputs" name="area" placeholder="Surface" value="<?php if(isset ($errors)){echo  htmlspecialchars($_POST['area']);}?>"/><br>
+        </div>
+
+        <div class="inputs_column_box">
+            <!-- PRIX TTC   -->
+            <input type="text" class="inputs" name="price" placeholder="Prix TTC" value="<?php if(isset ($errors)){echo  htmlspecialchars($_POST['price']);}?>"/>
+            <!-- STAGE  -->
+            <input type="text" class="inputs" name="stage" placeholder="Etage/Orientation" value="<?php if(isset ($errors)){echo  htmlspecialchars($_POST['stage']);}?>"/><br>
+        </div>
+
+        <div class="inputs_column_box">
+            <!-- RENT -->
+            <input type="text" class="inputs" name="rent" placeholder="Rentabilité/Loyer" value="<?php if(isset ($errors)){echo  htmlspecialchars($_POST['rent']);}?>"/>
+            <!-- DELIVERY DATE  -->
+            <input type="text" class="inputs" name="lotsDate" placeholder="Date de livraison" value="<?php if(isset ($errors)){echo  htmlspecialchars($_POST['lotsDate']);}?>"/><br>
+        </div>
+
+        <div class="inputs_column_box">
+            <!-- HONORARY -->
+            <input type="text" class="inputs" name="honorary" placeholder="Honoraire" value="<?php if(isset ($errors)){echo  htmlspecialchars($_POST['honorary']);}?>"/>
+            <!-- STATUS -->
+            <input type="text" class="inputs " name="available" placeholder="Status" value="<?php if(isset ($errors)){echo  htmlspecialchars($_POST['available']);}?>"/><br>
+        </div>
+
+        <!-- STATUS -->
+        <input type="file" class="inputs long-input" name="planImg" placeholder="Plan"/><br>
+         
+        <!-- BUTTON SUBMITT  -->
+        <input type="submit" class="inputs long-input" value="Envoyer">
+    </form>
+    
+    <div class="drops">
+        <div class="drop drop-1"></div>
+        <div class="drop drop-2"></div>
+        <div class="drop drop-3"></div>
+        <div class="drop drop-4"></div>
+        <div class="drop drop-5"></div>
+        </div>
+    </div>
+</div>
+

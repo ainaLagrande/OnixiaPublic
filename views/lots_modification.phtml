@@ -1,0 +1,63 @@
+<?php
+require_once './views/nav-bar.phtml';
+require_once './models/program_manager.php';
+?>
+
+
+<h2 class="update_title">Modification du lot <?= $loNumero ?></h2>
+   <div class="update-container reveal">
+    <span class='formErrors'><?php if(isset ($errors)){echo $errors;}?></span>
+    <span class='formSucces'><?php if(isset ($succes)){echo $succes;}?></span>
+    <form method="POST" class="update-forms">
+
+        <!-- NOM DU PROGRAMME  -->
+        <label for="">Choisir le programme</label>
+        <select class="inputs long-input" name="lotProgramName">
+            <?php foreach ($programs as $program): ?>
+            <option value="<?= $program['programName'] ?>"><?= $program['programName'] ?></option>
+            <?php endforeach; ?>
+        </select> 
+
+         <!-- Numero de lot -->
+       <label for="">Numero de lot</label>
+       <input type="text" class="inputs long-input" name ="lotNumero" value="<?= $loNumero ?>">
+
+       <!-- Nombre de piéces -->
+       <label for="">Nombre de piéces</label>
+       <input type="text" class="inputs long-input" name ="room" value="<?= $loRoom ?>">
+
+       <!--Surface  -->
+       <label for="">Surface</label>
+       <input type="text" class="inputs long-input" name ="area" value="<?= $loArea ?>">
+
+       <!-- Prix TTC -->
+       <label for="">Prix TTC</label>
+       <input type="text" class="inputs long-input" name ="price" value="<?= $loPrice ?>">
+
+       <!-- Etage/Orientation  -->
+       <label for="">Etage/Orientation</label>
+       <input type="text" class="inputs long-input" name ="stage" value="<?= $loStage ?>">
+
+       <!-- Rentabilité/Loyer  -->
+       <label for="">Rentabilité/Loyer</label>
+       <input type="text" class="inputs long-input" name ="rent" value="<?= $loRent ?>">
+
+       <!-- Date de livraison-->
+       <label for="">Date de livraison</label>
+       <input type="text" class="inputs long-input" name ="lotsDate" value="<?= $loDate ?>">
+
+       <!--  Honoraires -->
+       <label for="">Honoraires</label>
+       <input type="text" class="inputs long-input" name ="honorary" value="<?= $loHonorary ?>">
+
+       <!-- Status -->
+       <label for="">Status</label>
+       <input type="text" class="inputs long-input" name ="available" value="<?= $loAvailable ?>">
+
+       <!-- BUTTON SUBMITT  -->
+    
+      <button type="submit" class="update-inputs update-btn" style="width: 100%;">Modifier</button>
+      <button type="submit" name="delete_lot" class="update-inputs danger-btn" style="width: 100%; margin-top:20px;">Supprimer</button>
+     
+    </form>
+   </div>

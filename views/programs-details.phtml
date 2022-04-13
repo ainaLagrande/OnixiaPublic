@@ -1,0 +1,162 @@
+<?php
+
+require_once './models/lot_manager.php';
+require_once './views/nav-bar.phtml';
+?>
+
+<section class="programms-details-section">
+    <div class="programms-details-container">
+        <div class="programms-details-box">
+            <div>
+                <h3 class="description_title"> <span><?= $programCity ?>-</span><?= $programName ?></h3>
+            </div>
+                <img src="upload/<?= $programImg ?>" class="details-programms-img"/>
+                <!-- <button class="accordion">Lots disponibles:</button> -->
+                <!-- <div class="panel"> -->
+                    <?php //foreach ($lots as $lot): ?>
+                    <?php// if($programName && $lot['lotProgramName'] == $programName) : ?>
+                        <!-- <table class="programs_details_table ">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Numero de lot</th>
+                                    <th scope="col">Pièces</th>
+                                    <th scope="col">Surface</th>
+                                    <th scope="col">Prix/TTC</th>
+                                    <th scope="col">Status</th>
+                                    <?php //if(($_SESSION['userType']) == "user") : ?><!--si c'est un user -->
+                                        <!-- <th scope="col">Réserver</th> -->
+                                    <?php //endif; ?>
+                                <!-- </tr>
+                            </thead> -->
+
+                            <!-- <tbody>
+                            <tr>
+                            
+                                <td>
+                                    <a href="?page=lots&id=<?= $lot['id'] ?>">
+                                        <?= $lot['lotNumero'] ?>
+                                    </a>
+                                </td>
+                                    -->
+                                <td><?//= $lot['room'] ?></td>
+                                <td><?//= $lot['area'] ?></td>
+                                <td><?//= $lot['price'] ?></td>
+                                <td><?//= $lot['stage'] ?></td>
+                                <?php //if(($_SESSION['userType']) == "user") : ?><!--si c'est un user -->
+                                    <!-- <td><a href="mailto:ainapukipuki@gmail.com?subject=Je%20veux%20réserver%20le%20lot%20<?= $lot['lotNumero'] ?>%20du programme%20<?= $lot['lotProgramName'] ?>"> Reserver ce lot </a> </td> -->
+                                <?php //endif; ?>
+                                <!-- </tr>                                
+                            </tbody>
+                        
+                        </table>  -->
+                <?php //endif; ?>
+                <?php// endforeach; ?> 
+            </div>
+            <!-- REMUNERATION  -->
+            <!-- <div>
+                <button class="accordion">Rémuneration d'un indépendant avec contact:</button>
+                <div class="panel remuneration">
+                    <table class="table">
+                        <thead>
+                            <th scope="col">Rémunération de l'indépendant</th>
+                            <th scope="col">Commission d'Onixia</th>
+                        </thead>
+                        
+                        <tbody>
+                            <td scope="row">fcjk</td>
+                            <td class="reveal">ffdg</td>
+                        </tbody>
+                    </table>
+                </div>
+            </div> -->
+
+                <!-- <div>
+                <button class="accordion">Rémuneration d'un indépendant sans contact:</button>
+                <div class="panel remuneration">
+                <table class="table">
+                        <thead>
+                            <th scope="col">Rémunération de l'indépendant</th>
+                            <th scope="col">Commission d'Onixia</th>
+                        </thead>
+                        
+                        <tbody>
+                            <td scope="row">fcjk</td>
+                            <td class="reveal">ffdg</td>
+                        </tbody>
+                    </table>
+                </div> -->
+            </div>
+
+            </div>
+        </div>
+    </div>
+    
+    <div class="programms-details-item">
+        <div>
+        
+
+            <div class="programms-details-description">
+                <div class="commission_box">
+                    <?php if($_SESSION['all']['commissionStage'] == 'Pas de taux') : ?>
+                    <?php endif; ?>  
+
+                    <?php if($_SESSION['all']['commissionStage'] == 'Taux réel') : ?>
+                        <p class="commission_title">Commission réelle : <?= $programCommission ?></p>
+                    <?php endif; ?>  
+
+                    <?php if($_SESSION['all']['commissionStage'] == 'Vignette de couleur') : ?>
+                        <?php if($programCommission >= 1 && $programCommission <= 2): ?>
+                            <p class="commission_title">Commissions</p>
+                            <img src="./img/commission_dark_blue_dot.png" alt="">                     
+                        <?php endif; ?> 
+
+                        <?php if($programCommission >= 3 && $programCommission <= 5): ?>
+                            <p class="commission_title">Commissions</p>
+                            <img src="./img/commission_white_dot.png" alt="">                     
+                        <?php endif; ?> 
+
+                        <?php if($programCommission >= 6 && $programCommission <= 7): ?>
+                            <p class="commission_title">Commissions</p>
+                            <img src="./img/commission_blue_dot.png" alt="">                     
+                        <?php endif; ?> 
+
+                        <?php if($programCommission >= 8 && $programCommission <= 9): ?>
+                            <p class="commission_title">Commissions</p>
+                            <img src="./img/commission_argent_dot.png" alt="">
+                        <?php endif; ?> 
+
+                        <?php if($programCommission >= 10): ?>
+                            <p class="commission_title">Commissions</p>
+                            <img src="./img/commission_gold_dot.png" alt="">
+                        <?php endif; ?> 
+                    <?php endif; ?> 
+                </div>
+                
+                
+                <div class="programms-details-zone">
+                    <p><?= $programAdress ?> <?= $programPostalCity ?> <?= $programCity ?></p>
+                    <ul>
+                        <li>Zone Pinel :  <?= $programZoneFiscal ?></li>
+                        <li>Actabilité :  <?= $programActability ?></li>
+                        <li>Livraison :  <?= $programDateDelivery ?></li>
+                        <li>Fiscalité :  <?= $programFiscality ?></li>
+                        <li>Typologie :  <?= $programTypologie ?></li>
+                        <li> <?= $priceFrom ?></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<section class="programms-about">
+    <div class="programms-about-container">
+        <div class="programms-about-item">
+            <div>
+                <h3>Description</h3>
+                <?php echo preg_replace(']<br />]', '</strong><br />', nl2br($programDescription), 1); ?>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,51 @@
+<?php
+require_once './views/nav-bar.phtml';
+?>
+
+<table class="table">
+  <thead>
+    <tr >
+      <th scope="col">Programme</th>
+      <th scope="col">Pièces</th>
+      <th scope="col">Surface</th>
+      <th scope="col">Prix TTC</th>
+      <th scope="col">Etage/Orient.</th>
+      <th scope="col">Rentabilité/Loyer</th>
+      <th scope="col">Date de livraison</th>
+      <th scope="col">Honoraires</th>
+      <th scope="col">Status</th>
+      <th scope="col">Plan</th>
+      <?php if(($_SESSION['userType']) == "admin") : ?><!--si c'est un admin -->
+        <th scope="col">Modifier</th>
+      <?php endif; ?>
+      <?php if(($_SESSION['userType']) == "user") : ?><!--si c'est un admin -->
+        <th scope="col">Réserver</th>
+      <?php endif; ?>
+    </tr>
+  </thead>
+  
+  <tbody >
+    <?php foreach ($lots as $lot): ?>
+      <tr>
+      <th scope="row"><?= $lot['lotProgramName'] ?></th>
+      <td class="reveal"><?= $lot['room'] ?></td>
+      <td class="reveal"><?= $lot['area'] ?></td>
+      <td class="reveal"><?= $lot['price'] ?></td>
+      <td class="reveal"><?= $lot['stage'] ?></td>
+      <td class="reveal"><?= $lot['rent'] ?></td>
+      <td class="reveal"><?= $lot['lotsDate'] ?></td>
+      <td class="reveal"><?= $lot['honorary'] ?></td>
+      <td class="reveal"><?= $lot['available'] ?></td>
+                      
+      <td class="reveal"><a href="upload/<?= $lot['planImg']  ?>" donwload=""><img src="./img/File_icon.png" alt=""></a></td>
+      <?php if(($_SESSION['userType']) == "admin") : ?><!--si c'est un admin -->
+      <td class="reveal"><a href="?page=lots_modification&id=<?=$lot['id'] ?>">Modifier ce lot </a> </td>
+      <?php endif; ?>
+      <?php if(($_SESSION['userType']) == "user") : ?><!--si c'est un user -->
+        <td><a href="mailto:ainapukipuki@gmail.com?subject=Je%20veux%20réserver%20le%20lot%20<?= $lot['lotNumero'] ?>%20du programme%20<?= $lot['lotProgramName'] ?>"> Reserver ce lot </a> </td>
+      <?php endif; ?>
+    </tr>
+  <?php endforeach; ?>
+      
+  </tbody>
+</table>

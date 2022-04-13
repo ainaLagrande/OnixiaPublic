@@ -1,0 +1,121 @@
+<?php
+require_once './views/nav-bar.phtml';
+?>
+<!-- BARRE DE RECHERCHE  -->
+<form method="POST" class ="little_search_bar" action="index.php?page=search_result">
+      <div class="search_box">
+      <input type="text" name="searchLocalisation" class="inputs long-input" placeholder="Ville ou code postal"/><br>
+      <!-- FISCALITE -->
+      <select class="inputs long-input" name="searchFiscality">
+         <option  disabled selected hidden>Fiscalité</option>
+         <?php foreach ($fiscalities as $fiscalitie): ?>
+            <option value="<?= $fiscalitie['name'] ?>"><?= $fiscalitie['name'] ?></option>
+         <?php endforeach; ?>
+      </select>
+
+      <!-- COMMISSION -->
+      <input type="text" name="searchCommission" class="inputs long-input" placeholder="Commission"/><br>
+
+      <!-- ZONE FISCALE -->
+      <select class="inputs long-input" name="searchZone">
+         <option disabled selected hidden>Zone Fiscale</option>
+         <?php foreach ($zones as $zone): ?>
+            <option value="<?= $zone['name'] ?>"><?= $zone['name'] ?></option>
+         <?php endforeach; ?>
+      </select>
+
+      <select class="inputs long-input" name="searchPromoter">
+         <option disabled selected hidden>Promoteur</option>
+         <?php foreach ($promoters as $promoter): ?>
+            <option value="<?= $promoter['name'] ?>"><?= $promoter['name'] ?></option>
+         <?php endforeach; ?>
+      </select> 
+      <!-- <input type="search" class=""  /> -->
+      <div class="search-wrapper">
+         <div class="input-holder">
+            <button type="submit" class="search-icon"><span></span></button>
+            <button type="submit" class="inputs long-input mobil-search">Rechercher</button>
+         </div>
+      </div>
+   </div>
+   
+</form>
+
+<!-- RESULTAT  -->
+<section class="programms">
+
+    <div class="programms-container">
+        
+    <?php foreach ($programs as $program): ?>
+        <div class="programm-item reveal">
+
+        <?php if($program['programPreveligies'] == 'Nouveau') : ?>
+            <div class="distanction_box" id="new">
+                <span class="privilages_icons"><p>NOUVEAU</p></span>
+            </div>
+        <?php endif; ?>  
+
+        <?php if($program['programPreveligies'] == 'Prestige') : ?>
+            <div class="distanction_box" id="crown">
+                <span class="privilages_icons"><p>♛</p></span>
+            </div>
+        <?php endif; ?>  
+
+        <?php if($program['programPreveligies'] == 'Coup de cœur') : ?>
+            <div class="distanction_box" id="heart">
+                <span class="privilages_icons"><p>❤</p></span>
+            </div>
+        <?php endif; ?>  
+
+
+        <?php foreach ($users as $user): ?>
+            <a href="?page=programs-details&id=<?= $program['id']?>&commissionStage=<?=$_SESSION['all']['commissionStage'] ?>">
+        <?php endforeach; ?>
+       
+            <h4 class="ficality"><?= $program['programFiscality'] ?></h4>
+                <img src="upload/<?= $program['programImg'] ?>" class="programms-img"/>
+                <div class="head_txt">
+                    <h3><span><?= $program['programCity'] ?>-</span>  <kbd><?= $program['programName']?></kbd> </h3>
+                    <h4><?= $program['programAdress'] ?> <?= $program['programPostalCity'] ?> <ins><?= $program['programCity'] ?></ins></h4>
+                </div>
+
+                <div class="programs-text">
+                    <div class="programs_txt_item">
+                        <ul> 
+                            <li>Zone Pinel :  <?= $program['programZoneFiscal'] ?></li>
+                            <li>Actabilité : <?= $program['programActability'] ?></li>
+                            <li>Livraison : <?= $program['programDateDelivery'] ?></li>
+                            <li>Promoteur :  <?= $program['programPromoter'] ?></li>
+                            <li>Typologie :  <?= $program['programTypologie'] ?></li>
+                            <li>A partir de : <?= $program['priceFrom'] ?></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                <!-- <a href="?page=programs_modification&id=<?//=$program['priceFrom'] ?>"><input class="inputs" type="submit" value="Editer le programme"></a>   -->
+
+                <?php if(($_SESSION['userType']) == "admin") : ?><!--si c'est un admin -->
+                    <a href="?page=programs_modification&id=<?=$program['id'] ?>"><input class="inputs" type="submit" value="Editer le programme"></a>  
+                <?php endif; ?>
+            </a>
+        </div>
+    <?php endforeach; ?>
+    </div>
+    <div class="pagination_container">
+        <div class="pagination_box">
+            <?php
+
+            for($i=1;$i<=$pagesTotales;$i++) {
+                if($i == $pageCourante) {
+                echo '<a href="index.php?page=programs&pagination='.$i.'">'.$i.'</a>';
+                } else {
+                echo '<a href="index.php?page=programs&pagination='.$i.'">'.$i.'</a>';
+                }
+            }
+            ?>
+        </div>
+    </div>
+    
+</section>
+
+

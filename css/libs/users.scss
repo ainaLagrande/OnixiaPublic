@@ -1,0 +1,20 @@
+/* USERS PAGE */
+.users{
+    .inputs{
+      left: 3%;
+    }
+    h3,p{
+      color: black;
+    }
+    h3{
+      padding:1em;
+    }
+    .programm-item{
+      padding-right:2em;
+    }
+    .programs-text{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }

@@ -1,0 +1,49 @@
+<?php
+require_once './views/nav-bar.phtml';
+require_once './models/program_manager.php';
+?>
+
+<div class="homepage_container home_user">
+    <img src="./img/img5.jpg" alt="mobilier">
+    <div class="home-form">
+        <div class="home_form_box reveal">
+        <form method="POST" action="index.php?page=search_result">
+            <h2>Recherche rapide</h2>
+            <input type="text" name="searchLocalisation" class="inputs long-input" placeholder="Ville ou code postal"/><br>
+            <!-- FISCALITE -->
+            <select class="inputs long-input" name="searchFiscality">
+                <option  disabled selected hidden>Fiscalité</option>
+                <?php foreach ($fiscalities as $fiscalitie): ?>
+                    <option value="<?= $fiscalitie['name'] ?>"><?= $fiscalitie['name'] ?></option>
+                <?php endforeach; ?>
+            </select>
+
+            <!-- COMMISSION -->
+            <input type="text" name="searchCommission" class="inputs long-input" placeholder="Commission"/><br>
+
+            <!-- ZONE FISCALE -->
+            <select class="inputs long-input" name="searchZone">
+                <option disabled selected hidden>Zone Fiscale</option>
+                <?php foreach ($zones as $zone): ?>
+                    <option value="<?= $zone['name'] ?>"><?= $zone['name'] ?></option>
+                <?php endforeach; ?>
+            </select>
+            
+            <h2 class="serach_title">Recherche par programme</h2> 
+            <input type="text" name="q" class="inputs long-input" placeholder="Nom du programme*" /><br>
+            <input type="submit"name="submit" class="inputs long-input" value="Rechercher" />
+        </form>
+
+            <div class="drops">
+                <div class="drop drop-1"></div>
+                <div class="drop drop-2"></div>
+                <div class="drop drop-3"></div>
+                <div class="drop drop-4"></div>
+                <div class="drop drop-5"></div>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>
+
+

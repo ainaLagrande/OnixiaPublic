@@ -1,0 +1,171 @@
+#header_outer{
+  background:#ffffff;
+  height: 10vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack:end;
+  -ms-flex-pack:end;
+  justify-content:flex-end;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-right: 30px;
+  width: 100%;
+}
+.header_section{
+  position:relative;
+}
+.nav{
+  float:right;
+}
+.nav ul{
+  list-style:none;
+  padding:0px;
+}
+.nav ul.toggle{
+  display:none;
+  visibility:hidden;
+  height:0px;
+  overflow:hidden;
+  margin-bottom: 0;
+}
+  
+.nav ul li{
+  display:inline-block;
+  margin:0 23px;
+}
+.nav ul li:last-child{
+  margin:0 0 0 23px;
+} 
+.nav ul li a{
+  display:block;
+  color:#222222;
+  text-decoration:none;
+  text-transform:uppercase;
+  font-weight: 600;
+  -o-transition:all 0.2s ease-in-out;
+  transition:all 0.2s ease-in-out;
+  -moz-transition:all 0.2s ease-in-out;
+  -webkit-transition:all 0.2s ease-in-out;	
+  font-size: 14px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+.nav ul li a:hover{
+  color:$blue;
+}
+/* ICON MOBIL */
+.hamburger-icon-wrapper {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  top: 1em;
+  height: 26px;
+  width: 26px;
+  cursor: pointer ;
+  z-index: 6;
+  left: 90%;
+  -webkit-transform: translate( -90%) scale(1.2) ;
+  -ms-transform: translate( -90%) scale(1.2) ;
+  transform: translate( -90%) scale(1.2) ;
+  display: none;
+}
+.hamburger-icon, .hamburger-icon:before, .hamburger-icon:after {
+  content: '';
+  position: absolute;
+  border-radius: 1em;
+  height: 2px;
+  width: 36px;
+  background: white;
+  -webkit-transition: all 0.2s ease ;
+  -o-transition: all 0.2s ease ;
+  transition: all 0.2s ease ;
+}
+.hamburger-icon  { top: 0.75em ; }
+.hamburger-icon:before { top: -0.55em ;}
+.hamburger-icon:after  { top: 0.55em;  }
+.hamburger-active .hamburger-icon { background: transparent; -webkit-transform: rotate(-135deg); -ms-transform: rotate(-135deg); transform: rotate(-135deg); }
+.hamburger-active .hamburger-icon:before, .hamburger-active .hamburger-icon:after { top: 0 ;}
+.hamburger-active .hamburger-icon:before { -webkit-transform: rotate(90deg); -ms-transform: rotate(90deg); transform: rotate(90deg); }
+.hamburger-active .hamburger-icon, .hamburger-active .hamburger-icon:before, .hamburger-active .hamburger-icon:after {
+background: white ;
+}
+/* NAVBAR MOBIL */
+.hamburger-menu {
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease; 
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: $blue;
+  color: white;
+  text-align: center;
+  z-index: 5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  height: auto;
+  display: none;
+  a{
+    color: white;
+  }
+}
+.hamburger-active .hamburger-menu {
+  opacity: 1;
+  pointer-events: initial; 
+}
+.hamburger-menu-list {
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-size: 18px;
+  color:#222222;
+  font-family:'Dosis';
+  text-decoration:none;
+  text-transform:uppercase;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease; 
+  padding: 0;
+  list-style-type: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%) scale(1.2) ;
+  -ms-transform: translate(-50%, -50%) scale(1.2) ;
+  transform: translate(-50%, -50%) scale(1.2) ;
+  line-height: 4em;
+
+}
+.hamburger-active .hamburger-menu-list {
+  -webkit-transform: translate(-50%, -50%) scale(1);
+  -ms-transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(1) 
+}
+
+
+
+

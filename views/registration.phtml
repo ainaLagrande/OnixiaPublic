@@ -1,0 +1,53 @@
+<?php
+require_once './views/nav-bar.phtml';
+?>
+
+<div class="page_container">
+    <div class="form-container reveal">
+    <form method="POST" enctype="multipart/form-data">
+        <span class='formErrors'><?php if(isset ($errors)){echo $errors;}?></span>
+        <span class='formSucces'><?php if(isset ($succes)){echo $succes;}?></span>
+        <h2>Inscrire un membre</h2> 
+
+        <div class="inputs_column_box">
+            <!-- NAME  -->
+            <input type="text" name="initials" placeholder="Nom/Prénom" class="inputs" value="<?php if(isset ($errors)){echo  htmlspecialchars($_POST['initials']);}?>">
+            <!-- TEL  -->
+            <input type="text" name="tel" placeholder="Tél" class="inputs" value="<?php if(isset ($errors)){echo  htmlspecialchars($_POST['tel']);}?>">
+        </div>
+        
+        <div class="inputs_column_box">
+            <!-- EMAIL -->
+            <input type="email" name="email" placeholder="Email" class="inputs" value="<?php if(isset ($errors)){echo  htmlspecialchars($_POST['email']);}?>">
+            <!-- COMMISSION STATUS  -->
+            
+            <select class="inputs" name="commissionStage">
+                <option disabled selected hidden>Status de commission</option>
+                <?php foreach ($commissions as $commission): ?>
+                <option value="<?= $commission['name'] ?>"><?= $commission['name'] ?></option>
+                <?php endforeach; ?>
+            </select> 
+        
+        </div>
+        <!-- PASSWORD  -->
+        <input type="password" class="hide-pass inputs long-input" name="password" placeholder="Mot de Passe" value="<?php if(isset ($errors)){echo  htmlspecialchars($_POST['password']);}?>"><br>
+        <input type="checkbox" class=" show_pass" onclick="showPass()"/>
+        <label for="">Montrer le mot de passe</label>
+        
+        <!-- PASSWORD CONFIRMATION  -->
+        <input type="password" class="hide-pass-confirmation inputs long-input" name="passwordConfirmation" placeholder="Confirmation" value="<?php if(isset ($errors)){echo  htmlspecialchars($_POST['passwordConfirmation']);}?>"><br>
+        <input type="checkbox"class=" show_pass"  onclick="showPassConfirmation()" >
+        <label for="">Montrer la Confirmation</label>
+        <!-- BUTTON SUBMITT  -->
+        <input type="submit" class="inputs long-input" value="Inscrire"><br>
+    </form>
+
+    <div class="drops">
+        <div class="drop drop-1"></div>
+        <div class="drop drop-2"></div>
+        <div class="drop drop-3"></div>
+        <div class="drop drop-4"></div>
+        <div class="drop drop-5"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<?php
+require_once './views/nav-bar.phtml';
+?>
+
+<h2 class="update_title">Modification du membre <?=$usInitials  ?></h2>
+
+   <div class="update-container reveal">
+      <span class='formErrors'><?php if(isset ($errors)){echo $errors;}?></span>
+      <span class='formSucces'><?php if(isset ($succes)){echo $succes;}?></span>
+    <form method="POST" class="update-forms">
+       <!-- NAME 1 -->
+      <label for="">Prénom/Nom</label>
+      <input type="text" class="inputs long-input" name ="initials" value="<?= $usInitials?>">
+
+       <!-- TEL -->
+      <label for="">Télephone</label>
+      <input type="text" class="inputs long-input" name ="tel" value="<?= $usTel?>">
+
+       <!-- EMAIL -->
+      <label for="">Email</label>
+      <input type="text" class="inputs long-input" name ="email" value="<?= $usEmail?>">
+
+        <!-- COMMISSION STATUS -->
+      <label for="">Commission Status</label>
+      <select class="inputs long-input" name="commissionStage">
+         <option value="<?= $usCommissionStage ?>"><?= $usCommissionStage ?></option>
+         <?php foreach ($commissions as $commission): ?>
+            <option value="<?= $commission['name'] ?>"><?= $commission['name'] ?></option>
+         <?php endforeach; ?>
+      </select> 
+
+       <!-- BUTTON SUBMITT  -->
+      <button type="submit" name="update" class="update-inputs update-btn" style="width: 100%;">Modifier</button>
+      <button type="submit" name="delete_users" class="update-inputs danger-btn" style="width: 100%; margin-top:20px;">Supprimer</button>
+      </form>
+   </div>

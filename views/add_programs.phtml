@@ -1,0 +1,92 @@
+<?php
+require_once './views/nav-bar.phtml';
+?>
+<div class="page_container">
+    <div class="programs_details_container">
+    <div class="form-container add_form_container reveal">
+    <form method="POST" enctype="multipart/form-data">
+    <span class='formErrors'><?php if(isset ($errors)){echo $errors;}?></span>
+    <span class='formSucces'><?php if(isset ($succes)){echo $succes;}?></span>
+    <span id='result'></span>
+        <h2>Ajouter un programme</h2> 
+
+        <div class="inputs_column_box">
+            <!-- NOM DU PROGRAMME 1 -->
+            <input name="programName"  type="text" class="inputs" placeholder="Nom du programme" value="<?php if(isset ($errors)){echo htmlspecialchars($_POST['programName']);}?>" />
+            <!-- programPromoter 2   -->
+            <select class="inputs long-input" name="programPromoter">
+                <option disabled selected hidden>Promoteur</option>
+                <?php foreach ($promoters as $promoter): ?>
+                    <option value="<?= $promoter['name'] ?>"><?= $promoter['name'] ?></option>
+                <?php endforeach; ?>
+            </select> 
+            <!-- programActability 3-->
+            <input name="programActability" type="text" class="inputs" placeholder="Actabilité" value="<?php if(isset ($errors)){echo htmlspecialchars($_POST['programActability']);}?>"/>
+        </div>
+        
+        <div class="inputs_column_box">
+            <!-- programFiscality  4 -->
+            <select class="inputs long-input" name="programFiscality">
+                <option disabled selected hidden>Fiscalité</option>
+                <?php foreach ($fiscalities as $fiscalitie): ?>
+                    <option value="<?= $fiscalitie['name'] ?>"><?= $fiscalitie['name'] ?></option>
+                <?php endforeach; ?>
+            </select>
+            <!-- programDateDelivery 5 -->
+            <input name="programDateDelivery" type="text" class="inputs"placeholder="Date de livraison" value="<?php if(isset ($errors)){echo htmlspecialchars($_POST['programDateDelivery']);}?>"/>
+            <!-- programCommission 6 -->
+            <input name="programCommission" type="text"  class="inputs"placeholder="Commission" value="<?php if(isset ($errors)){echo htmlspecialchars($_POST['programCommission']);}?>"/>
+        </div>
+        <div class="inputs_column_box">
+            <!-- programAdress  7-->
+            <input name="programAdress" type="text" class="inputs" placeholder="Adresse" value="<?php if(isset ($errors)){echo htmlspecialchars($_POST['programAdress']);}?>"/>
+            <!-- programPostalCity 8 -->
+            <input name="programPostalCity" type="text" class="inputs" placeholder="Code Postal" value="<?php if(isset ($errors)){echo htmlspecialchars($_POST['programPostalCity']);}?>"/>
+            <!-- programCity 9 -->
+            <input name="programCity" type="text" class="inputs" placeholder="Ville" value="<?php if(isset ($errors)){echo htmlspecialchars($_POST['programCity']);}?>"/>
+        </div>
+        <div class="inputs_column_box">
+            <!-- programZoneFiscal 10-->
+            <select class="inputs long-input" name="programZoneFiscal">
+                <option disabled selected hidden>Zone Fiscale</option>
+                <?php foreach ($zones as $zone): ?>
+                    <option value="<?= $zone['name'] ?>"><?= $zone['name'] ?></option>
+                <?php endforeach; ?>
+            </select> 
+            <!-- programTypologie 11-->
+            <input name="programTypologie" type="text" class="inputs long-input" placeholder="Typologie" value="<?php if(isset ($errors)){echo htmlspecialchars($_POST['programTypologie']) ;}?>"/><br>
+            <!--A partir de 12-->
+            <input name="priceFrom" type="text" class="inputs long-input" placeholder="T3 a partir de..." value="<?php if(isset ($errors)){echo htmlspecialchars($_POST['priceFrom']) ;}?>"/><br>
+        </div>
+        <!-- programImg  13-->
+        <label for="">Image</label>
+        <input name="programImg" type="file" class="inputs long-input"  multiple  />
+        <!-- programDocuments 14-->
+        <label for="">Document</label>
+        <input name="programDocuments" type="file" class="inputs long-input" multiple />
+         <!-- programDocuments 14-->
+         <select class="inputs long-input" name="programPreveligies">
+            <option disabled selected hidden>Favoris</option>
+            <?php foreach ($prestiges as $prestige): ?>
+                <option value="<?= $prestige['name'] ?>"><?= $prestige['name'] ?></option>
+            <?php endforeach; ?>
+        </select> 
+
+        
+        <!-- programDescription 15-->
+        <textarea name="programDescription" type="text" class="long-input description_input" placeholder="Déscription" ><?php if(isset ($errors)){echo htmlspecialchars($_POST['programDescription']);}?></textarea><br>
+        <!-- BUTTON SUBMITT  -->
+        <input type="submit" class="inputs long-input" value="Envoyer"><br>
+    </form>
+
+    <div class="drops">
+        <div class="drop drop-1"></div>
+        <div class="drop drop-2"></div>
+        <div class="drop drop-3"></div>
+        <div class="drop drop-4"></div>
+        <div class="drop drop-5"></div>
+        </div>
+    </div>
+    </div>
+</div>
+

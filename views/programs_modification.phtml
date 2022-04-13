@@ -1,0 +1,111 @@
+<?php
+require_once './views/nav-bar.phtml';
+?>
+
+<h2 class="update_title">Modification du programme <?= $programName ?></h2>
+<span class='formErrors'><?php if(isset ($errors)){echo $errors;}?></span>
+<span class='formSucces'><?php if(isset ($succes)){echo $succes;}?></span>
+   <div class="update-container reveal">
+    <form method="POST" class="update-forms" enctype="multipart/form-data">
+       <!-- NAME 1 -->
+       <label for="">Nom du programme</label>
+       <input type="text" class="inputs long-input" name ="programName" value="<?= $programName ?>">
+
+       <!-- programPromoter 2   -->
+       <label for="">Promoteur</label>
+       <select class="inputs long-input" name="programPromoter">
+         <option value="<?= $programPromoter ?>"><?= $programPromoter ?></option>
+         <?php foreach ($promoters as $promoter): ?>
+            <option value="<?= $promoter['name'] ?>"><?= $promoter['name'] ?></option>
+         <?php endforeach; ?>
+      </select> 
+       
+       <!-- programActability 3 -->
+       <label for="">Actabilité</label>
+       <input type="text" class="inputs long-input" name ="programActability" value="<?= $programActability ?>">
+
+       <!-- programFiscality 4 -->
+       <label for="">Fiscalité</label>
+       <select class="inputs long-input" name="programFiscality">
+         <option value="<?= $programFiscality ?>"><?= $programFiscality ?></option>
+         <?php foreach ($fiscalities as $fiscalitie): ?>
+            <option value="<?= $fiscalitie['name'] ?>"><?= $fiscalitie['name'] ?></option>
+         <?php endforeach; ?>
+      </select> 
+
+       <!-- programDateDelivery 5 -->
+       <label for="">Date de délivrance</label>
+       <input type="text" class="inputs long-input" name ="programDateDelivery" value="<?= $programDateDelivery ?>">
+
+       <!-- programCommission  6-->
+       <label for="">Comission</label>
+       <input type="text" class="inputs long-input" name ="programCommission" value="<?= $programCommission ?>">
+
+       <!-- programAdress 7 -->
+       <label for="">Adresse</label>
+       <input type="text" class="inputs long-input" name ="programAdress" value="<?= $programAdress ?>">
+
+      <!-- programPostalCity  8-->
+       <label for="">Code postal</label>
+       <input type="text" class="inputs long-input" name ="programPostalCity" value="<?= $programPostalCity ?>">
+
+       <!-- programCity  9-->
+       <label for="">Ville</label>
+       <input type="text" class="inputs long-input" name ="programCity" value="<?= $programCity ?>">
+
+       <!-- programZoneFiscal 10 -->
+       <label for="">Zone Fiscale</label>
+       <select class="inputs long-input" name="programZoneFiscal">
+         <option value="<?= $programZoneFiscal ?>"><?= $programZoneFiscal ?></option>
+         <?php foreach ($zones as $zone): ?>
+            <option value="<?= $zone['name'] ?>"><?= $zone['name'] ?></option>
+         <?php endforeach; ?>
+      </select> 
+            
+        <!-- programZoneFiscal 11 -->
+       <label for="">Typologie</label>
+       <input type="text" class="inputs long-input" name ="programTypologie" value="<?= $programTypologie ?>">
+
+        <!-- PRICEFROM 12 -->
+        <label for="">T3 a partir de...</label>
+        <input type="text" class="inputs long-input" name ="priceFrom" value="<?= $priceFrom ?>">
+         
+        <!-- PRICEFROM 13 -->
+        <label for="">Favoris</label>
+         <select class="inputs long-input" name="programPreveligies">
+            <option value="<?= $programPreveligies ?>"><?= $programPreveligies ?></option>
+            <?php foreach ($prestiges as $prestige): ?>
+               <option value="<?= $prestige['name']?>"><?= $prestige['name'] ?></option>
+            <?php endforeach; ?>
+        </select> 
+
+       <!-- programDescription 14 -->
+       <label for="">Déscription</label>
+       <textarea name="programDescription" type="text" class="long-input description_input"><?= $programDescription ?></textarea><br>
+       <!-- BUTTON SUBMITT  -->
+      <button type="submit" name="update_program" class="update-inputs update-btn">Modifier</button>
+      <button type="submit" name="delete_program" class="update-inputs danger-btn">Supprimer</button>
+      </form>
+   </div>
+
+   <!-- IMG MODIF  -->
+   <h2 class="update_title">Modification de l'image <?= $programName ?></h2>
+   <div class="update-container reveal">
+      <form method="POST" class="update-forms" enctype="multipart/form-data">
+         <label for="">Image</label>
+         <input name ="programImg" type="file" class="inputs long-input">
+         <!-- BUTTON SUBMITT  -->
+         <button type="submit" name="update_img" class="update-inputs update-btn">Modifier</button>
+      </form>
+   </div>
+
+   <!-- DOC MODIF  -->
+   <h2 class="update_title">Modification du document <?= $programName ?></h2>
+   <div class="update-container reveal">
+      <form method="POST" class="update-forms" enctype="multipart/form-data">
+         <label for="">Document</label>
+         <input type="file" class="inputs long-input" name ="programDocuments" value="<?= $programDocuments ?>" >
+         <!-- BUTTON SUBMITT  -->
+         <button type="submit" name="update_doc" class="update-inputs update-btn">Modifier</button>
+      </form>
+   </div>

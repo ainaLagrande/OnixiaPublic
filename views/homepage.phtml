@@ -1,0 +1,36 @@
+<div class="homepage_container home">
+<img src="./img/img5.jpg" alt="mobilier">
+    <div class="homepage_form">
+        <div class="home_form_box reveal">
+            <form method="POST" enctype="multipart/form-data">
+                <span class='formErrors'><?php if(isset ($errors)){echo $errors;}?></span><br/>
+                <h2>Se connecter</h2> 
+                <!-- EMAIL -->
+                <input type="email" name="email" placeholder="Email" class="inputs" value="<?php if(isset ($errors)){echo  htmlspecialchars($_POST['email']);}?>"><br>
+                <!-- PASSWORD  -->
+                <input type="password" class="hide-pass inputs" name="password" placeholder="Mot de Passe" value="<?php if(isset ($errors)){echo  htmlspecialchars($_POST['password']);}?>" ><br>
+                <div class="show_pass_box">
+                    <input type="checkbox" class="show_password" onclick="showPass()">
+                    <label for="">Montrer le mot de passe</label>
+                </div>
+               
+                <!-- BUTTON SUBMITT  -->
+                <input type="submit" class="inputs" value="Se connecter"><br>
+                <div class="forgot_password_container">
+                    <a href="index.php?page=forgot_password"class="forgot_password">Mot de passe oublié?</a>
+                </div>
+                
+            </form>
+
+            <div class="drops">
+                <div class="drop drop-1"></div>
+                <div class="drop drop-2"></div>
+                <div class="drop drop-3"></div>
+                <div class="drop drop-4"></div>
+                <div class="drop drop-5"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

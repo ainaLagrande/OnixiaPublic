@@ -1,0 +1,20 @@
+<?php
+require_once './models/registration_manager.php';
+require_once './views/nav-bar.phtml';
+?>
+
+<section class="programms users">
+    <div class="programms-container">
+    <?php foreach ($users as $user): ?>
+        <div class="programm-item reveal">
+            <h3><?= $user['initials'] ?></h3>
+            <div class="programs-text">
+                <p>Télephone:<?= $user['tel'] ?></p>
+                <p>Email:<?= $user['email'] ?></p>
+                <p>Status de commission:<?= $user['commissionStage'] ?></p>
+            </div>
+            <a href="?page=users_update&id=<?=$user['id'] ?>"><input class="inputs" style="width: 100%;" type="submit" value="Editer l'utilisateur"></a> 
+        </div>
+    <?php endforeach; ?>
+    </div>
+</section>

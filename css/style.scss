@@ -1,0 +1,27 @@
+
+
+
+$gold:#c9a65b;
+$blue:#16466C;
+$dark_blue:#0f2e42;
+$gray:#0f2e42;
+
+@import 'libs/nav_bar.scss';
+@import 'libs/layout.scss';
+@import 'libs/homepages.scss';
+@import 'libs/programs.scss';
+@import 'libs/lots.scss';
+@import 'libs/forms.scss';
+@import 'libs/update_pages.scss';
+@import 'libs/users.scss';
+@import 'libs/responsive.scss';
+ 
+
+ @font-face {
+   font-family: 'Minion';
+   src: url(../font/MinionPro-MediumDisp.otf);
+ }
+
+
+
+ 
